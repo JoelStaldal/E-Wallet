@@ -5,8 +5,13 @@
     v-bind:cardStatus="cardStatus"
     v-bind:card="getActiveCard"
   />
+  <CardStack 
+    v-for="card in getNonActiveCards"
+    v-bind:key="card.id"
+    v-bind:card="card"
+  />
   <router-link to="/addcard">
-  <button>add</button>
+  <button>ADD A NEW CARD</button>
   </router-link>
 </div>
 </template>
@@ -14,14 +19,14 @@
 
 import Header from '../components/Header'
 import Card from '../components/Card'
-
+import CardStack from '../components/CardStack'
 
 export default {
   name: 'Home',
   components: {
       Header,
       Card,
-      
+      CardStack
   },
   data() {
     return {
@@ -33,8 +38,11 @@ export default {
   computed: {
     getActiveCard(){
       let activeCard = this.$root.cardList.find(card => card.active)
-      console.log(activeCard)
       return activeCard
+    },
+    getNonActiveCards(){
+      let nonActiveCards = this.$root.cardList.filter(card => !card.active)
+      return nonActiveCards
     }
   }
 } 

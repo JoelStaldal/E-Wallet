@@ -33,7 +33,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
 }
 .card-container {
     -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
@@ -51,13 +50,16 @@ export default {
 .icons {
     width: 19rem;
     height: 5rem;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     display: flex;
     justify-content: space-between;
     
 }
 .card-number {
-    height: 2rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 img {
