@@ -14,6 +14,11 @@ import Card from '../components/Card'
 
 export default {
     name: "CardStack",
+    data(){
+        return {
+            isActive: true
+        }
+    },
     components: {
         Card
     },
@@ -35,5 +40,11 @@ export default {
 </script>
 
 <style scoped>
-
+/* .card-stack-container {
+    position: relative;
+    height: 3rem;
+}
+.card {
+    position: absolute;
+} */
 </style>

@@ -48,5 +48,12 @@ export default {
 } 
 </script>
 <style scoped>
-
+button {
+  margin: 1rem;
+  width: 21rem;
+  height: 5rem;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  
+}
 </style>

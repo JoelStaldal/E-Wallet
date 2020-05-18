@@ -5,7 +5,9 @@
             "cardnumber": "1234 1234 1234 1230",
             "valid": "12/22",
             "color": "rgb(255,172,65)",
-            "active": true
+            "active": true,
+            "vendor": "vendor-bitcoin.svg",
+            "chip": "chip-dark.svg"
         },
 		{
             "id": 2,
@@ -13,7 +15,9 @@
             "cardnumber": "5678 5678 5678 5678",
             "valid": "11/22",
             "color": "rgb(56,56,56)",
-            "active": false
+            "active": false,
+            "vendor": "vendor-ninja.svg",
+            "chip": "chip-light.svg"
         },
 		{
 			"id": 3,
@@ -21,7 +25,9 @@
             "cardnumber": "9876 9876 9876 9876",
             "valid": "10/22",
             "color": "rgb(113,69,219)",
-            "active": false
+            "active": false,
+            "vendor": "vendor-blockchain.svg",
+            "chip": "chip-light.svg"
 		},
 		{
 			"id": 4,
@@ -29,7 +35,9 @@
             "cardnumber": "6666 6666 6666 6666",
             "valid": "09/22",
             "color": "rgb(215,40,67)",
-            "active": false
+            "active": false,
+            "vendor": "vendor-evil.svg",
+            "chip": "chip-light.svg"
 		}
     ]
 }
