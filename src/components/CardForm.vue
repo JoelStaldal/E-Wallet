@@ -16,18 +16,14 @@
         </div>
         <div class="vendor">
             <p>VENDOR</p>
-            <form action>
-            <select name="vendors">
-            <option value="blank"></option>
-            <option value="bitcoin">Bitcoin</option>
-            <option value="blockchain">Blockchain</option>
-            <option value="evil">Evil Corp</option>
-            <option value="ninja">Ninja Corp</option>
+            <select v-on:change="setVendorAndGenerateColor" v-model="vendor">
+            <option value="vendor-bitcoin.svg">Bitcoin</option>
+            <option value="vendor-blockchain.svg">Blockchain</option>
+            <option value="vendor-evil.svg">Evil Corp</option>
+            <option value="vendor-ninja.svg">Ninja Corp</option>
             </select>
-            
-</form>
         </div>
-        <button>ADD CARD</button>
+        <button v-on:click="fireAddCardEvent">ADD CARD</button>
     </div>
 </template>
 <script>
@@ -38,10 +34,35 @@ export default {
     },
     data(){
         return {
-            newCard: this.card
+            newCard: this.card,
+            vendor: ""
+        }
+    },
+    methods: {
+        fireAddCardEvent(){
+            if(this.newCard.vendor == "vendor-bitcoin.svg"){
+                this.newCard.color = "rgb(255,172,65)"
+                this.$emit("addCard", this.newCard)
+            } else {
+                console.log("CIAO")
+            }
+        },
+        setVendorAndGenerateColor(){
+            this.newCard.vendor = this.vendor
+            if(this.newCard.vendor == "vendor-bitcoin.svg"){
+                this.newCard.color = "rgb(255,172,65)"
+            }
+            if(this.newCard.vendor == "vendor-blockchain.svg"){
+                this.newCard.color = "rgb(113,69,219)"
+            }
+            if(this.newCard.vendor == "vendor-evil.svg"){
+                this.newCard.color = "rgb(215,40,67)"
+            }
+            if(this.newCard.vendor == "vendor-ninja.svg"){
+                this.newCard.color = "rgb(56,56,56)"
+            }
         }
     }
-
 }
 </script>
 
@@ -72,6 +93,10 @@ button {
     height: 3rem;
     border: 1px solid black;
     border-radius: 0.5rem;
+}
+
+.validThru {
+    display: flex;
 }
 
 </style>

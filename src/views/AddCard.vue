@@ -7,6 +7,7 @@
       />
     <CardForm 
       v-bind:card="newCard"
+      v-on:addCard="addCardHandler"
       />
     
 </div>
@@ -28,7 +29,6 @@ export default {
       return {
         headerText: "ADD A NEW BANK CARD",
         cardStatus: "NEW CARD",
-        cardList: this.$root.cardList,
         newCard: {
             "id": 5,
             "cardholder": "FIRSTNAME LASTNAME",
@@ -41,6 +41,13 @@ export default {
         }
     }
   },
+  methods: {
+    addCardHandler(newCard){
+      console.log(newCard)
+      this.$root.cardList.push(newCard)
+      this.$router.push("/")
+    }
+  }
 }
 </script>
 

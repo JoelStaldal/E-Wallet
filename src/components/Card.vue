@@ -60,6 +60,7 @@ export default {
 }
 
 .bottom {
+    padding: 0 0.6rem 0 0.6rem;
     margin: 0;
     display: flex;
     justify-content: space-between;
