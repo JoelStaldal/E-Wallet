@@ -10,9 +10,7 @@
     v-bind:key="card.id"
     v-bind:card="card"
   />
-  <router-link to="/addcard">
-  <button>ADD A NEW CARD</button>
-  </router-link>
+  <button v-on:click="routeToAddCard">ADD A NEW CARD</button>
 </div>
 </template>
 <script>
@@ -44,16 +42,29 @@ export default {
       let nonActiveCards = this.$root.cardList.filter(card => !card.active)
       return nonActiveCards
     }
+  },
+  methods: {
+    routeToAddCard(){
+      this.$router.push("/addcard")
+    }
   }
 } 
 </script>
 <style scoped>
+.home {
+  height: 130vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 button {
-  margin: 1rem;
+  margin-top: auto;
   width: 21rem;
   height: 5rem;
   border: 2px solid black;
   border-radius: 0.5rem;
-  
+  background: white;
+  font-size: 1.5rem;
 }
 </style>

@@ -40,11 +40,9 @@ export default {
 </script>
 
 <style scoped>
-/* .card-stack-container {
-    position: relative;
-    height: 3rem;
+.card-stack-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 50px;
 }
-.card {
-    position: absolute;
-} */
 </style>

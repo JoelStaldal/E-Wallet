@@ -1,21 +1,23 @@
 <template>
     <div class="card-form">
         <div class="card-number">
-            <p>CARD NUMBER</p>
+            <label>CARD NUMBER</label>
             <input type="text" v-model="newCard.cardnumber" />
         </div>
         <div class="cardholder-name">
-            <p>CARDHOLDER NAME</p>
+            <label>CARDHOLDER NAME</label>
             <input type="text" v-model="newCard.cardholder">
         </div>
-        <div class="validThru">
-            <p>VALID THRU</p>
+        <div class="validThruText">
+            <label>VALID THRU</label>
+            <label>CCV</label>
+        </div>
+        <div class="validThruInput">
             <input type="text" v-model="newCard.valid">
-            <p>CCV</p>
             <input type="text">
         </div>
         <div class="vendor">
-            <p>VENDOR</p>
+            <label>VENDOR</label>
             <select v-on:change="setVendorAndGenerateColor" v-model="vendor">
             <option value="vendor-bitcoin.svg">Bitcoin</option>
             <option value="vendor-blockchain.svg">Blockchain</option>
@@ -23,7 +25,7 @@
             <option value="vendor-ninja.svg">Ninja Corp</option>
             </select>
         </div>
-        <button v-on:click="fireAddCardEvent">ADD CARD</button>
+            <button v-on:click="fireAddCardEvent">ADD CARD</button>
     </div>
 </template>
 <script>
@@ -40,12 +42,7 @@ export default {
     },
     methods: {
         fireAddCardEvent(){
-            if(this.newCard.vendor == "vendor-bitcoin.svg"){
-                this.newCard.color = "rgb(255,172,65)"
-                this.$emit("addCard", this.newCard)
-            } else {
-                console.log("CIAO")
-            }
+            this.$emit("addCard", this.newCard)
         },
         setVendorAndGenerateColor(){
             this.newCard.vendor = this.vendor
@@ -68,7 +65,7 @@ export default {
 
 <style scoped>
 button {
-  margin: 1rem;
+  margin: 1rem 0 1rem 0;
   width: 21rem;
   height: 5rem;
   border-radius: 0.5rem;
@@ -81,22 +78,31 @@ button {
     height: 3rem;
     border: 1px solid black;
     border-radius: 0.5rem;
+    font-size: 1rem;
 }
-.validThru input, .CCV input {
+.validThruInput input {
     width: 10rem;
     height: 3rem;
     border: 1px solid black;
     border-radius: 0.5rem;
+    font-size: 1rem;
 }
-.vendor form select{
+.vendor select {
     width: 21rem;
     height: 3rem;
     border: 1px solid black;
     border-radius: 0.5rem;
 }
 
-.validThru {
+.validThruInput {
     display: flex;
+    justify-content: space-evenly;
 }
-
+.validThruText {
+    display: flex;
+    justify-content: space-evenly;
+}
+.card-number, .cardholder-name, .vendor {
+    margin-top: 0.5rem;
+}
 </style>
