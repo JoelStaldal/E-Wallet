@@ -64,6 +64,7 @@ export default {
 
 .card-number {
     font-size: 1.1rem;
+    height: 3rem;
 }
 
 .bottom {

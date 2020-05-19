@@ -2,19 +2,21 @@
     <div class="card-form">
         <div class="card-number">
             <label>CARD NUMBER</label>
-            <input type="text" v-model="newCard.cardnumber" />
+            <input type="text" placeholder="XXXX-XXXX-XXXX-XXXX" v-mask="'####-####-####-####'" v-model="newCard.cardnumber" />
         </div>
         <div class="cardholder-name">
             <label>CARDHOLDER NAME</label>
-            <input type="text" v-model="newCard.cardholder">
+            <input type="text" maxlength="30" v-model="newCard.cardholder">
         </div>
-        <div class="validThruText">
-            <label>VALID THRU</label>
-            <label>CCV</label>
-        </div>
-        <div class="validThruInput">
-            <input type="text" v-model="newCard.valid">
-            <input type="text">
+        <div class="validThruAndCCV">
+            <div class="validThru">
+                <label>VALID THRU</label>
+                <input type="tel" placeholder="MM/YY" v-mask="'##/##'" v-model="newCard.valid">
+            </div>
+            <div class="CCV">
+                <label>CCV</label>
+                <input type="text" placeholder="XXX" maxlength="3">
+            </div>
         </div>
         <div class="vendor">
             <label>VENDOR</label>
@@ -29,15 +31,18 @@
     </div>
 </template>
 <script>
+import {mask} from 'vue-the-mask'
 export default {
     name: "CardForm",
+    directives: {mask},
     props: {
-        card: Object
+        card: Object,
     },
     data(){
         return {
             newCard: this.card,
-            vendor: ""
+            vendor: "",
+            test: "testText"
         }
     },
     methods: {
@@ -84,29 +89,30 @@ button {
     border-radius: 0.5rem;
     font-size: 1rem;
 }
-.validThruInput input {
+.validThruAndCCV input {
     width: 10rem;
     height: 3rem;
     border: 1px solid black;
     border-radius: 0.5rem;
     font-size: 1rem;
 }
+.validThru, .CCV {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.validThruAndCCV {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .vendor select {
     width: 21rem;
     height: 3rem;
     border: 1px solid black;
     border-radius: 0.5rem;
 }
-
-.validThruInput {
-    display: flex;
-    justify-content: space-evenly;
-}
-.validThruText {
-    display: flex;
-    justify-content: space-evenly;
-}
-.card-number, .cardholder-name, .vendor {
+.card-number, .cardholder-name, .validThru, .CCV, .vendor {
     margin-top: 0.5rem;
 }
 </style>
