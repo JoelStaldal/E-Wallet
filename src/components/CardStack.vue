@@ -22,13 +22,7 @@ export default {
     },
     methods: {
         setActiveCard(id){
-            this.$root.cardList.forEach(card => {
-                if(card.id == id){
-                    card.active = true
-                } else {
-                    card.active = false
-                }
-            });
+            this.$store.commit('setActiveCard', id)
         }
     }
 }

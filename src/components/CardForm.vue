@@ -27,7 +27,7 @@
             <option value="vendor-ninja.svg">Ninja Corp</option>
             </select>
         </div>
-            <button v-on:click="fireAddCardEvent">ADD CARD</button>
+            <button v-on:click="addCard">ADD CARD</button>
     </div>
 </template>
 <script>
@@ -45,8 +45,10 @@ export default {
         }
     },
     methods: {
-        fireAddCardEvent(){
-            this.$emit("addCard", this.newCard)
+        addCard(){
+            this.$store.dispatch('addCard', this.newCard)
+            console.log(this.newCard)
+            this.$router.push("/")
         },
         setVendorAndGenerateColor(){
             this.newCard.vendor = this.vendor

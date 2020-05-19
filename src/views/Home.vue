@@ -29,18 +29,15 @@ export default {
   data() {
     return {
       headerText: "E-WALLET",
-      cardStatus: "ACTIVE CARD",
-      cardList: this.$root.cardList
+      cardStatus: "ACTIVE CARD"
     }
   },
   computed: {
     getActiveCard(){
-      let activeCard = this.$root.cardList.find(card => card.active)
-      return activeCard
+      return this.$store.getters.getActiveCard
     },
     getNonActiveCards(){
-      let nonActiveCards = this.$root.cardList.filter(card => !card.active)
-      return nonActiveCards
+      return this.$store.getters.getNonActiveCards
     }
   },
   methods: {

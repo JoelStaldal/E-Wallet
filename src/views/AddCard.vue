@@ -7,7 +7,7 @@
       />
     <CardForm 
       v-bind:card="newCard"
-      v-on:addCard="addCardHandler"
+      
       />
 </div>
 </template>
@@ -29,7 +29,7 @@ export default {
         headerText: "ADD A NEW BANK CARD",
         cardStatus: "NEW CARD",
         newCard: {
-            "id": this.$root.cardList.length + 1,
+            "id": this.$store.getters.getCurrentId,
             "cardholder": "FIRSTNAME LASTNAME",
             "cardnumber": "XXXX XXXX XXXX XXXX",
             "valid": "MM/YY",
@@ -40,13 +40,6 @@ export default {
         }
     }
   },
-  methods: {
-    addCardHandler(newCard){
-      console.log(newCard)
-      this.$root.cardList.push(newCard)
-      this.$router.push("/")
-    }
-  }
 }
 </script>
 

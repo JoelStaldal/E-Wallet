@@ -31,11 +31,6 @@ export default {
         cardStatus: String,
         card: Object
     },
-    data() {
-        return {
-            isActive: true
-        }
-    },
 }
 </script>
 
