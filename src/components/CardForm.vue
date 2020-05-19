@@ -2,7 +2,7 @@
     <div class="card-form">
         <div class="card-number">
             <label>CARD NUMBER</label>
-            <input type="text" placeholder="XXXX-XXXX-XXXX-XXXX" v-mask="'####-####-####-####'" v-model="newCard.cardnumber" />
+            <input type="text" placeholder="XXXX-XXXX-XXXX-XXXX" v-mask="'####-####-####-####'" v-model="newCard.cardnumber"/>
         </div>
         <div class="cardholder-name">
             <label>CARDHOLDER NAME</label>
@@ -15,7 +15,7 @@
             </div>
             <div class="CCV">
                 <label>CCV</label>
-                <input type="text" placeholder="XXX" maxlength="3">
+                <input type="text" placeholder="XXX" v-mask="'###'">
             </div>
         </div>
         <div class="vendor">
@@ -41,8 +41,7 @@ export default {
     data(){
         return {
             newCard: this.card,
-            vendor: "",
-            test: "testText"
+            vendor: ""
         }
     },
     methods: {
