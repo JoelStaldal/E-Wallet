@@ -7,7 +7,8 @@
             "color": "rgb(255,172,65)",
             "active": true,
             "vendor": "vendor-bitcoin.svg",
-            "chip": "chip-dark.svg"
+            "chip": "chip-dark.svg",
+            "textColor": "black"
         },
 		{
             "id": 2,
@@ -17,7 +18,8 @@
             "color": "rgb(56,56,56)",
             "active": false,
             "vendor": "vendor-ninja.svg",
-            "chip": "chip-light.svg"
+            "chip": "chip-light.svg",
+            "textColor": "white"
         },
 		{
 			"id": 3,
@@ -27,7 +29,8 @@
             "color": "rgb(113,69,219)",
             "active": false,
             "vendor": "vendor-blockchain.svg",
-            "chip": "chip-light.svg"
+            "chip": "chip-light.svg",
+            "textColor": "white"
 		},
 		{
 			"id": 4,
@@ -37,7 +40,8 @@
             "color": "rgb(215,40,67)",
             "active": false,
             "vendor": "vendor-evil.svg",
-            "chip": "chip-light.svg"
+            "chip": "chip-light.svg",
+            "textColor": "white"
 		}
     ]
 }

@@ -14,11 +14,6 @@ import Card from '../components/Card'
 
 export default {
     name: "CardStack",
-    data(){
-        return {
-            isActive: true
-        }
-    },
     components: {
         Card
     },

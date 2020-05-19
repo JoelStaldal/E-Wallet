@@ -48,15 +48,19 @@ export default {
             this.newCard.vendor = this.vendor
             if(this.newCard.vendor == "vendor-bitcoin.svg"){
                 this.newCard.color = "rgb(255,172,65)"
+                this.newCard.textColor = "black"
             }
             if(this.newCard.vendor == "vendor-blockchain.svg"){
                 this.newCard.color = "rgb(113,69,219)"
+                this.newCard.textColor = "white"
             }
             if(this.newCard.vendor == "vendor-evil.svg"){
                 this.newCard.color = "rgb(215,40,67)"
+                this.newCard.textColor = "white"
             }
             if(this.newCard.vendor == "vendor-ninja.svg"){
                 this.newCard.color = "rgb(56,56,56)"
+                this.newCard.textColor = "white"
             }
         }
     }

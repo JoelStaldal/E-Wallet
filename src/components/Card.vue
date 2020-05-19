@@ -1,7 +1,9 @@
 <template>
 <div class="card">
     <p>{{cardStatus}}</p>
-    <div class="card-container" v-bind:style="{background: card.color}">
+    <div class="card-container" 
+        v-bind:style="{background: [card.color], color: [card.textColor]}"
+        >
         <div class="icons">
            <img :src="require(`../assets/${card.chip}`)">
            <img :src="require(`../assets/${card.vendor}`)">
@@ -28,7 +30,12 @@ export default {
     props: {
         cardStatus: String,
         card: Object
-    }
+    },
+    data() {
+        return {
+            isActive: true
+        }
+    },
 }
 </script>
 
@@ -79,8 +86,5 @@ img {
 img:nth-of-type(2){
     margin-top: -1rem;
 
-}
-.white {
-    color: white;
 }
 </style>
