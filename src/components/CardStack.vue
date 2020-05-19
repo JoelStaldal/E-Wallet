@@ -1,12 +1,11 @@
 <template>
-<div class="card-stack">
     <div class="card-stack-container">
         <Card 
+            v-for="card in getNonActiveCards"
+            v-bind:key="card.id"
             v-bind:card="card"
-            v-on:click.native="setActiveCard(card.id)"
-            />
+            v-on:click.native="setActiveCard(card.id)"/>
     </div>
-</div>
 </template>
 <script>
 
@@ -24,6 +23,11 @@ export default {
         setActiveCard(id){
             this.$store.commit('setActiveCard', id)
         }
+    },
+    computed: {
+        getNonActiveCards(){
+            return this.$store.getters.getNonActiveCards
+    }
     }
 }
 </script>

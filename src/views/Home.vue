@@ -5,11 +5,7 @@
     v-bind:cardStatus="cardStatus"
     v-bind:card="getActiveCard"
   />
-  <CardStack 
-    v-for="card in getNonActiveCards"
-    v-bind:key="card.id"
-    v-bind:card="card"
-  />
+  <card-stack />
   <button v-on:click="routeToAddCard">ADD A NEW CARD</button>
 </div>
 </template>
@@ -35,9 +31,6 @@ export default {
   computed: {
     getActiveCard(){
       return this.$store.getters.getActiveCard
-    },
-    getNonActiveCards(){
-      return this.$store.getters.getNonActiveCards
     }
   },
   methods: {
@@ -49,7 +42,7 @@ export default {
 </script>
 <style scoped>
 .home {
-  height: 130vh;
+  height: 120vh;
   display: flex;
   flex-direction: column;
   align-items: center;

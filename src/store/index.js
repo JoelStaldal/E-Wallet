@@ -20,8 +20,8 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    addCard(state, payload){
-      state.cardList.push(payload)
+    addCard(state, newCard){
+      state.cardList.push(newCard)
     },
     setActiveCard(state, id){
       state.cardList.forEach(c => {
