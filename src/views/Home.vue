@@ -2,11 +2,13 @@
 <div class="home">
   <Header v-bind:headerText="headerText"/>
   <Card
-    v-bind:cardStatus="cardStatus"
-    v-bind:card="getActiveCard"
-  />
+    v-if="getActiveCard"
+    v-bind:cardStatus="cardStatusActive"
+    v-bind:card="getActiveCard"/>
+    <p v-else>{{cardStatusSelect}}</p>
+  <button class="delButton" v-on:click="deleteCard" v-if="getActiveCard">Delete</button>
   <card-stack />
-  <button v-on:click="routeToAddCard">ADD A NEW CARD</button>
+  <button class="addNewCardButton" v-on:click="routeToAddCard">ADD A NEW CARD</button>
 </div>
 </template>
 <script>
@@ -25,7 +27,8 @@ export default {
   data() {
     return {
       headerText: "E-WALLET",
-      cardStatus: "ACTIVE CARD"
+      cardStatusActive: "ACTIVE CARD",
+      cardStatusSelect: "SELECT A CARD"
     }
   },
   computed: {
@@ -36,7 +39,11 @@ export default {
   methods: {
     routeToAddCard(){
       this.$router.push("/addcard")
-    }
+    },
+    deleteCard(){
+      let activeCard = this.getActiveCard
+      this.$store.dispatch('deleteCard', activeCard)
+      }
   }
 } 
 </script>
@@ -48,7 +55,7 @@ export default {
   align-items: center;
 }
 
-button {
+.addNewCardButton {
   margin-top: auto;
   width: 21rem;
   height: 5rem;
@@ -56,5 +63,8 @@ button {
   border-radius: 0.5rem;
   background: white;
   font-size: 1.5rem;
+}
+.delButton {
+  margin-top: 1rem;
 }
 </style>

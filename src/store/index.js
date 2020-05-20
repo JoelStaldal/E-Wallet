@@ -20,19 +20,26 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    addCard(state, newCard){
+    addCardMutation(state, newCard){
       state.cardList.push(newCard)
     },
+    deleteCardMutation(state, activeCard){
+      state.cardList = state.cardList.filter(card => card.id != activeCard.id)
+      console.log(state.cardList)
+    },
     setActiveCard(state, id){
-      state.cardList.forEach(c => {
-        if(c.id == id){c.active = true}
-        else{c.active = false}
+      state.cardList.forEach(card => {
+        if(card.id == id){card.active = true}
+        else{card.active = false}
       })
     }
   },
   actions: {
     addCard(context, newCard){
-      context.commit('addCard', newCard)
+      context.commit('addCardMutation', newCard)
+    },
+    deleteCard(context, activeCard){
+      context.commit('deleteCardMutation', activeCard)
     }
   },
   modules: {

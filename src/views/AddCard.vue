@@ -5,10 +5,7 @@
       v-bind:cardStatus="cardStatus"
       v-bind:card="newCard"
       />
-    <CardForm 
-      v-bind:card="newCard"
-      
-      />
+    <CardForm v-bind:card="newCard"/>
 </div>
 </template>
 <script>

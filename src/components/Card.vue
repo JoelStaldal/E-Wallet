@@ -30,7 +30,7 @@ export default {
     props: {
         cardStatus: String,
         card: Object
-    },
+    }
 }
 </script>
 
