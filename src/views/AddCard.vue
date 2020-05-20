@@ -28,8 +28,8 @@ export default {
         newCard: {
             "id": this.$store.getters.getCurrentId,
             "cardholder": "FIRSTNAME LASTNAME",
-            "cardnumber": "XXXX XXXX XXXX XXXX",
-            "valid": "MM/YY",
+            "cardnumber": "",
+            "valid": "",
             "color": "rgb(209,209,209)",
             "active": false,
             "vendor": "vendor-bitcoin.svg",

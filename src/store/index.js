@@ -17,7 +17,10 @@ export default new Vuex.Store({
     },
     getCurrentId: state => {
       return state.cardList.length + 1
-    }
+    },
+    getArrayLength: state => {
+      return state.cardList.length
+    },
   },
   mutations: {
     addCardMutation(state, newCard){
@@ -25,7 +28,6 @@ export default new Vuex.Store({
     },
     deleteCardMutation(state, activeCard){
       state.cardList = state.cardList.filter(card => card.id != activeCard.id)
-      console.log(state.cardList)
     },
     setActiveCard(state, id){
       state.cardList.forEach(card => {

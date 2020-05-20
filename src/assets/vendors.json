@@ -1,0 +1,30 @@
+{"vendor": [
+    {
+        "name": "bitcoin",
+        "vendor": "vendor-bitcoin.svg",
+        "chip": "chip-dark.svg",
+        "textColor": "black",
+        "color": "rgb(255,172,65)"
+      },
+      {
+        "name": "ninja",
+        "vendor": "vendor-ninja.svg",
+        "chip": "chip-light.svg",
+        "textColor": "white",
+        "color": "rgb(56,56,56)"
+      },
+      {
+        "name": "blockchain",
+        "vendor": "vendor-blockchain.svg",
+        "chip": "chip-light.svg",
+        "textColor": "white",
+        "color": "rgb(113,69,219)"
+      },
+      {
+        "name": "evil",
+        "vendor": "vendor-evil.svg",
+        "chip": "chip-light.svg",
+        "textColor": "white",
+        "color": "rgb(215,40,67)"
+      }
+]}
