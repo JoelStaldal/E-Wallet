@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    cardList: cardList.card
+    cardList: cardList.card,
+    currentId: 4
   },
   getters: {
     getActiveCard: state => {
@@ -16,7 +17,7 @@ export default new Vuex.Store({
       return state.cardList.filter(card => !card.active)
     },
     getCurrentId: state => {
-      return state.cardList.length + 1
+      return state.currentId
     },
     getArrayLength: state => {
       return state.cardList.length
@@ -34,10 +35,15 @@ export default new Vuex.Store({
         if(card.id == id){card.active = true}
         else{card.active = false}
       })
+    },
+    incrementId: state => {
+      state.currentId++
     }
   },
   actions: {
     addCard(context, newCard){
+      context.commit('incrementId')
+      newCard.id = context.state.currentId
       context.commit('addCardMutation', newCard)
     },
     deleteCard(context, activeCard){

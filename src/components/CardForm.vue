@@ -47,6 +47,7 @@ export default {
     methods: {
         addCard(){
             this.$store.dispatch('addCard', this.newCard)
+            console.log(this.newCard)
             this.$router.push("/")
         },
         setVendorAndGenerateColor(){
